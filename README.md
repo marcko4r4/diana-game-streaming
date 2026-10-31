@@ -58,6 +58,14 @@ Para usar la háptica y los gatillos adaptativos de un DualSense conectado por U
 
 Si el controlador no está disponible, la opción de háptica muestra un error antes de iniciar el juego.
 
+**En la app Diana**, entra a **Ajustes > Ajustes del Gamepad** y comprueba que estas tres opciones estén activadas. Vienen activadas por defecto, pero sin ellas las funciones del DualSense no funcionan:
+
+* **Driver para mando Xbox 360/One** (en inglés: *Xbox 360/One/NintendoPro USB gamepad driver*). Es el driver USB integrado que permite a la app comunicarse con el mando.
+* **DualSense USB Waveform Haptics**: háptica de forma de onda en tiempo real.
+* **Gatillos Adaptativos DualSense** (en inglés: *DualSense Adaptive Triggers*): efectos y resistencia en los gatillos L2 y R2.
+
+La opción **Ganancia Háptica DualSense** ajusta la intensidad de la háptica entre 50% y 200%.
+
 **Si instalaste Vibepollo sin ese componente:** puedes usar el script [actualizar_driver_dualsense.bat](actualizar_driver_dualsense.bat). Ejecútalo como administrador. Requiere Windows 10 o superior y Vibepollo instalado.
 
 Si no usas un DualSense por USB, no necesitas nada de esto.
