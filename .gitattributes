@@ -1,0 +1,3 @@
+# Los scripts de Windows deben conservar CRLF al descargarse
+*.bat text eol=crlf
+*.cmd text eol=crlf

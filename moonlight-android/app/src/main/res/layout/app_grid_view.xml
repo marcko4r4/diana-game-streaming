@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragmentView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:numColumns="auto_fit"
+    android:columnWidth="170dp"
+    android:stretchMode="spacingWidthUniform"
+    android:verticalSpacing="8dp"
+    android:horizontalSpacing="8dp"
+    android:padding="8dp"
+    android:listSelector="@drawable/list_view_unselected"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clipToPadding="false"
+    android:gravity="center"/>

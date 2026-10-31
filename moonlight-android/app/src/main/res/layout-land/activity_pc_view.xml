@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Landscape orientation (also typical for Android TV) -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".PcView">
+
+    <!-- Modern Top Bar (Landscape / TV) -->
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentTop="true"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/appTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diana"
+                android:textColor="@color/textPrimary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:background="@drawable/bg_action_button"
+                android:text="BETA"
+                android:textColor="@color/secondary"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/manuallyAddPc"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="10dp"
+                android:padding="11dp"
+                android:scaleType="fitCenter"
+                android:background="@drawable/bg_action_button"
+                android:src="@drawable/ic_add"
+                android:contentDescription="@string/title_add_pc"
+                android:nextFocusRight="@id/helpButton"
+                android:nextFocusDown="@id/fragmentView"
+                android:preferKeepClear="true"
+                android:tint="@color/textPrimary" />
+
+            <ImageButton
+                android:id="@+id/helpButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="10dp"
+                android:padding="11dp"
+                android:scaleType="fitCenter"
+                android:background="@drawable/bg_action_button"
+                android:src="@drawable/ic_help"
+                android:contentDescription="@string/help"
+                android:nextFocusLeft="@id/manuallyAddPc"
+                android:nextFocusRight="@id/settingsButton"
+                android:nextFocusDown="@id/fragmentView"
+                android:preferKeepClear="true"
+                android:tint="@color/textPrimary" />
+
+            <ImageButton
+                android:id="@+id/settingsButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="11dp"
+                android:scaleType="fitCenter"
+                android:background="@drawable/bg_action_button"
+                android:src="@drawable/ic_settings"
+                android:contentDescription="Settings"
+                android:nextFocusLeft="@id/helpButton"
+                android:nextFocusDown="@id/fragmentView"
+                android:preferKeepClear="true"
+                android:tint="@color/textPrimary" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pcFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topBar"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:gravity="center">
+
+        <!-- Empty & Loading State Container -->
+        <RelativeLayout
+            android:id="@+id/no_pc_found_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/surfaceCard"
+                app:strokeColor="@color/surfaceVariant"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="28dp">
+
+                    <ProgressBar
+                        android:id="@+id/pcs_loading"
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:indeterminate="true"
+                        android:indeterminateTint="@color/primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:text="@string/searching_pc" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="13sp"
+                        android:text="@string/pcview_menu_open_management_page" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!-- Profiles Extended FAB -->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/profilesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="24dp"
+        android:text="@string/profile_manager_choose_profile"
+        android:textColor="@color/onPrimary"
+        app:icon="@drawable/ic_profiles"
+        app:iconTint="@color/onPrimary"
+        app:backgroundTint="@color/primary"
+        app:cornerRadius="16dp"
+        app:elevation="6dp"
+        android:contentDescription="@string/profile_manager_choose_profile" />
+
+</RelativeLayout>

@@ -1,0 +1,10 @@
+# Ignore temporary build files and intermediate APKs
+bin/artemis-*.apk
+.gradle/
+build/
+local.properties
+*.log
+
+
+# Local: laboratorio y skills privadas (no publicar)
+.claude/
